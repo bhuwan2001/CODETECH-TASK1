@@ -1,0 +1,85 @@
+/'The code defines four functions:
+
+add(a, b): takes two numbers a and b as input and returns their sum.
+subtract(a, b): takes two numbers a and b as input and returns their difference.
+multiply(a, b): takes two numbers a and b as input and returns their product.
+divide(a, b): takes two numbers a and b as input and returns their quotient. If b is zero, it returns an error message "Error! Division by zero."
+Calculator Function
+
+The calculator() function is the main entry point of the program. It:
+
+Prints a welcome message to the user.
+Asks the user to input two numbers, num1 and num2, using float(input(...)). If the user enters non-numeric values, it catches the ValueError exception and prints an error message.
+Prints a menu of operations (addition, subtraction, multiplication, and division) and asks the user to choose an operation by entering a number (1, 2, 3, or 4).
+Based on the user's choice, it calls the corresponding function (add, subtract, multiply, or divide) with num1 and num2 as arguments.
+Prints the result of the operation using an f-string.
+Main Block
+
+The if __name__ == "__main__": block is used to ensure that the calculator() function is only executed when the script is run directly (i.e., not when it's imported as a module by another script).
+
+When the script is run, it calls the calculator() function, which guides the user through the calculation process.
+
+Error Handling
+
+The code includes some basic error handling:
+
+It catches ValueError exceptions when the user enters non-numeric values for num1 and num2.
+It checks for division by zero in the divide function and returns an error message if b is zero.'/
+
+
+
+
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+
+def divide(a, b):
+    if b == 0:
+        return "Error! Division by zero."
+    return a / b
+
+
+def calculator():
+    print("Welcome to the basic calculator!")
+
+    try:
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+    except ValueError:
+        print("Invalid input. Please enter numeric values.")
+        return
+
+    print("Choose an operation:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+
+    operation = input("Enter the number corresponding to the operation: ")
+
+    if operation == '1':
+        result = add(num1, num2)
+        print(f"The result of addition is: {result}")
+    elif operation == '2':
+        result = subtract(num1, num2)
+        print(f"The result of subtraction is: {result}")
+    elif operation == '3':
+        result = multiply(num1, num2)
+        print(f"The result of multiplication is: {result}")
+    elif operation == '4':
+        result = divide(num1, num2)
+        print(f"The result of division is: {result}")
+    else:
+        print("Invalid operation. Please choose a number between 1 and 4.")
+
+
+if __name__ == "__main__":
+    calculator()
